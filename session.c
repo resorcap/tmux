@@ -254,11 +254,11 @@ session_destroy(struct session *s, const char *from)
 	session_remove_ref(s, __func__);
 }
 
-/* Check a session name is valid: not empty and no colons or periods. */
+/* Check a session name is valid: not empty and no colons. */
 int
 session_check_name(const char *name)
 {
-	return (*name != '\0' && name[strcspn(name, ":.")] == '\0');
+	return (*name != '\0' && name[strcspn(name, ":")] == '\0');
 }
 
 /* Lock session if it has timed out. */
